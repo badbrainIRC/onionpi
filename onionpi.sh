@@ -32,7 +32,6 @@ sudo rm -r /etc/network/interfaces
 sudo sh -c "echo '# interfaces(5) file used by ifup(8) and ifdown(8)
 
 
-source directory /etc/network/interfaces.d
 auto lo
 iface lo inet loopback 
 iface eth0 inet dhcp
@@ -83,12 +82,11 @@ sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
 
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
-
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-
 sudo sh -c "iptables-save > /etc/iptables/rules.v4"
+
 sudo timeout 2 /usr/sbin/hostapd /etc/hostapd/hostapd.conf
 
 
