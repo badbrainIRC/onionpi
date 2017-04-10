@@ -76,7 +76,7 @@ wme_enabled=1' >> /etc/hostapd/hostapd.conf"
 
 
 sudo sed -i 's/#DAEMON_CONF=""/DAEMON_CONF="/etc/hostapd/hostapd.conf"/g' /etc/default/hostapd
-sudo sed -i 's/DAEMON_CONF=/DAEMON_CONF=/etc/hostapd/hostapd.conf/g' /etc/init.d/hostapd
+sudo sed -i 's/DAEMON_CONF=/DAEMON_CONF= /etc/hostapd/hostapd.conf/g' /etc/init.d/hostapd
 sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
 
