@@ -95,7 +95,6 @@ sudo timeout 2 /usr/sbin/hostapd /etc/hostapd/hostapd.conf
 
 sudo mv /usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service ~/
 
-sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf
 sudo service hostapd start 
 sudo service isc-dhcp-server start
 sudo update-rc.d hostapd enable 
